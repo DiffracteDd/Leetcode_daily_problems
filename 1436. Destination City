@@ -1,0 +1,38 @@
+HashSet<String> origins = new HashSet<>();class Solution {
+    public String destCity(List<List<String>> paths) {
+        HashSet<String> origins = new HashSet<>();
+        HashSet<String> destinations = new HashSet<>();
+
+        for (List<String> path : paths) {
+            origins.add(path.get(0));
+            destinations.add(path.get(1));
+        }
+
+        
+        for (String destination : destinations) {
+            if (!origins.contains(destination)) {
+                return destination;
+            }
+        }
+
+        return ""; 
+    }
+}
+        HashSet<String> destinations = new HashSet<>();
+
+        // Add all cities to the HashSet of origins and destinations
+        for (List<String> path : paths) {
+            origins.add(path.get(0));
+            destinations.add(path.get(1));
+        }
+
+        // Find the city without any incoming path
+        for (String destination : destinations) {
+            if (!origins.contains(destination)) {
+                return destination;
+            }
+        }
+
+        return ""; // This line should never be reached given the constraints
+    }
+}

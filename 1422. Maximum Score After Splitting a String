@@ -1,0 +1,31 @@
+class Solution {
+    public int maxScore(String s) {
+        int l = s.length();
+        int max=0;
+        for(int i=1;i<l;i++)
+        {
+            int z=0;
+            int ones=0;
+            for(int j=0;j<i;j++)
+            {
+                if(s.charAt(j)=='0')
+                {
+                    z++;
+                }
+            }
+
+            for(int k=i;k<l;k++)
+            {
+                if(s.charAt(k)=='1')
+                {
+                    ones++;
+                }
+            }
+            if(max<(ones+z))
+            {
+                max=ones+z;
+            }
+        }
+        return max;        
+    }
+}

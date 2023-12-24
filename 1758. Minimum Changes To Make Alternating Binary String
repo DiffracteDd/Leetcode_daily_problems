@@ -1,0 +1,14 @@
+class Solution {
+    public int minOperations(String s) {
+        int count = 0;
+        char[] ch1 = s.toCharArray();
+        for (int i = 1; i < s.length(); i++) {
+            if (ch1[i - 1] == ch1[i]) {
+                count++;
+                // Toggle the current character
+                ch1[i] = (ch1[i] == '0') ? '1' : '0';
+            }
+        }
+        return Math.min(count, s.length() - count);
+    }
+}

@@ -1,15 +1,10 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-        HashSet<Character> vowels = new HashSet<>();
-        char[] ch = {'a','e','i','o','u','A','E','I','O','U'};
+        HashSet<Character> vowels = new HashSet<>(Set.of('a','e','i','o','u','A','E','I','O','U'));
+
         int h1=0,h2=0;
-        
-        for(char c : ch)
-        {
-            vowels.add(c);
-        }
-        int i=0,j=0;
-        for (i=0,j=s.length()-1; i<j ;i++,j--)
+       
+        for (int i=0,j=s.length()-1; i<j ;i++,j--)
         {
             if(vowels.contains(s.charAt(i)))
             {

@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+class Solution {
+    public int[][] divideArray(int[] nums, int k) {
+        Arrays.sort(nums);
+
+        ArrayList<int[]> result = new ArrayList<>();
+        for (int i = 0; i < nums.length - 2; i = i + 3) {
+            ArrayList<Integer> arr = new ArrayList<>();
+            if (nums[i + 2] - nums[i] <= k) {
+                arr.add(nums[i]);
+                arr.add(nums[i + 1]);
+                arr.add(nums[i + 2]);
+            }
+            else
+            {
+                return new int[0][0];
+            }
+
+            if (!arr.isEmpty()) {
+                result.add(arr.stream().mapToInt(Integer::intValue).toArray());
+            }
+        }
+
+        // Convert ArrayList to 2D array
+        int[][] res = result.toArray(new int[0][]);
+        return res;
+    }
+}

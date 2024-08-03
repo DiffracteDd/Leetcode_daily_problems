@@ -1,0 +1,25 @@
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        HashMap<Integer,Integer> mapt = new HashMap<>();
+        HashMap<Integer,Integer> maparr = new HashMap<>();
+        for(int i:target)
+        {
+            mapt.put(i,mapt.getOrDefault(i,0)+1);
+        }
+        for(int j:arr)
+        {
+            maparr.put(j,maparr.getOrDefault(j,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> e : mapt.entrySet())
+        {
+            int element = e.getKey();
+            int value = e.getValue();
+            int count2 = maparr.getOrDefault(element,0);
+            if(value != count2)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}

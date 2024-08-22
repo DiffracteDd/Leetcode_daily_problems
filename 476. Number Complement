@@ -1,0 +1,31 @@
+class Solution {
+    public int findComplement(int num) {
+        int id =0;
+        int[] binary = new int[35];
+        while(num>0)
+        {
+            binary[id++]=num%2;
+            num = num/10;
+        }
+
+        for(int i=0;i<id;i++)
+        {
+            if(binary[id]==0)
+            {
+                binary[id]=1;
+            }
+            else
+            {
+                binary[id]=0;
+            }
+        }
+        return binaryArrayToInt(binary,id);
+    }
+    static int binaryArrayToInt(int[] binary, int id) {
+        int result = 0;
+        for (int i = 0; i < id; i++) {
+            result += binary[i] * Math.pow(2, i);
+        }
+        return result;
+    }
+}
